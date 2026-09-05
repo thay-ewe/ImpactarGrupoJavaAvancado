@@ -33,7 +33,7 @@ public class Sistema implements VoluntarioInterface {
     @Override
     public boolean cadastrarVoluntario(String nome, String email, String matricula) {
         for (Voluntario vo : BancoDeArrays.voluntarios) {
-            if (vo.getEmail().equalsIgnoreCase(email)) {
+            if (vo.getEmailVoluntario().equalsIgnoreCase(email)) {
                 throw new IllegalArgumentException("Email já cadastrado: " + email);
             }
         }
@@ -81,14 +81,14 @@ public class Sistema implements VoluntarioInterface {
         double total = produto + pontuacao;
 
         for (Voluntario voluntario1 : BancoDeArrays.voluntarios) {
-            if (email.equalsIgnoreCase(voluntario1.getEmail()) && id == 1) {
-                System.out.println("Antes: " + voluntario1.getEmail() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
+            if (email.equalsIgnoreCase(voluntario1.getEmailVoluntario()) && id == 1) {
+                System.out.println("Antes: " + voluntario1.getEmailVoluntario() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
 
                 int qntAcao = voluntario1.getQuantidadeDeAcoes() + 1;
                 double pontos = voluntario1.getPontuacao() + total;
                 voluntario1.setQuantidadeDeAcoes(qntAcao);
                 voluntario1.setPontuacao(pontos);
-                System.out.println("Depois: " + voluntario1.getEmail() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
+                System.out.println("Depois: " + voluntario1.getEmailVoluntario() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
                 return total;
             }
         }
@@ -107,8 +107,8 @@ public class Sistema implements VoluntarioInterface {
         double total = produto + bonusFinal;
 
         for (Voluntario voluntario1 : BancoDeArrays.voluntarios) {
-            if (email.equalsIgnoreCase(voluntario1.getEmail()) && id == 2) {
-                System.out.println("Antes: " + voluntario1.getEmail() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
+            if (email.equalsIgnoreCase(voluntario1.getEmailVoluntario()) && id == 2) {
+                System.out.println("Antes: " + voluntario1.getEmailVoluntario() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
 
                 int qntAcao = voluntario1.getQuantidadeDeAcoes() + 1;
 
@@ -116,7 +116,7 @@ public class Sistema implements VoluntarioInterface {
                 double pontos = voluntario1.getPontuacao() + total;
 
                 voluntario1.setPontuacao(pontos);
-                System.out.println("Depois: " + voluntario1.getEmail() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
+                System.out.println("Depois: " + voluntario1.getEmailVoluntario() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
                 return total;
             }
         }
@@ -128,15 +128,15 @@ public class Sistema implements VoluntarioInterface {
         double total = duracaoHora *= pontuacao;
 
         for (Voluntario voluntario1 : BancoDeArrays.voluntarios) {
-            if (email.equalsIgnoreCase(voluntario1.getEmail()) && id == 3) {
-                System.out.println("Antes: " + voluntario1.getEmail() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
+            if (email.equalsIgnoreCase(voluntario1.getEmailVoluntario()) && id == 3) {
+                System.out.println("Antes: " + voluntario1.getEmailVoluntario() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
 
                 int qntAcao = voluntario1.getQuantidadeDeAcoes() + 1;
                 double pontos = voluntario1.getPontuacao() + total;
 
                 voluntario1.setQuantidadeDeAcoes(qntAcao);
                 voluntario1.setPontuacao(pontos);
-                System.out.println("Depois: " + voluntario1.getEmail() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
+                System.out.println("Depois: " + voluntario1.getEmailVoluntario() + " " + voluntario1.getPontuacao() + " " + voluntario1.getQuantidadeDeAcoes());
                 return total;
             }
         }
@@ -150,9 +150,9 @@ public class Sistema implements VoluntarioInterface {
             return "Nenhum voluntário cadastrado.";
         }
 
-        StringBuilder sb = new StringBuilder("=== LISTA DE VOLUNTÁRIOS (por pontuação) ===\n");
+        StringBuilder sb = new StringBuilder("=== LISTA DE VOLUNTÁRIOS ===\n");
         for (Voluntario vo : BancoDeArrays.voluntarios) {
-            sb.append(vo.toString()).append("\n");
+            System.out.println(vo);
         }
         return sb.toString();
     }
@@ -160,7 +160,7 @@ public class Sistema implements VoluntarioInterface {
     @Override
     public String exibirVoluntario(String email) {
         for (Voluntario vo : BancoDeArrays.voluntarios) {
-            if (email.equalsIgnoreCase(vo.getEmail())) {
+            if (email.equalsIgnoreCase(vo.getEmailVoluntario())) {
                 System.out.println(vo);
                 return email;
             }

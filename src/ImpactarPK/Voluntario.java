@@ -3,14 +3,14 @@ import java.util.Comparator;
 
 public class Voluntario {
     private String nome;
-    private String email;
+    private String emailVoluntario;
     private String matricula;
     private double pontuacao;
     private int quantidadeDeAcoes;
 
-    public Voluntario(String nome, String email, String matricula) {
+    public Voluntario(String nome, String emailVoluntario, String matricula) {
         this.nome = nome;
-        this.email = email;
+        this.emailVoluntario = emailVoluntario;
         this.matricula = matricula;
         this.pontuacao = 0;
         this.quantidadeDeAcoes = 0;
@@ -51,12 +51,12 @@ public class Voluntario {
         this.matricula = matricula;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailVoluntario() {
+        return emailVoluntario;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailVoluntario(String email) {
+        this.emailVoluntario = email;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class Voluntario {
         return "\nVoluntario:" +
                 "\nNome: " + nome +
                 "\nMatricula: " + matricula +
-                "\nEmail: " + email +
+                "\nEmail: " + emailVoluntario +
                 "\nQuantidadeDeAcoes: " + quantidadeDeAcoes +
                 "\nPontuacao: " + pontuacao+"\n";
     }

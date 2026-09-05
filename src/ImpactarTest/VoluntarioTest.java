@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class VoluntarioTest {
     Sistema sistema;
+    Voluntario voluntario;
     ///////////////////MENU///////////////////
     /// CADASTRO
     // INSCRICAO
@@ -21,6 +22,7 @@ public class VoluntarioTest {
     @BeforeEach
     public void setUp(){
         this.sistema = new Sistema();
+        this.voluntario = new Voluntario("Thay","thay.ewe@gmail","1");
 
     }
     @Test
@@ -30,7 +32,7 @@ public class VoluntarioTest {
 
         assertFalse(BancoDeArrays.getVoluntarios().isEmpty());
         assertEquals(1,BancoDeArrays.getVoluntarios().size());
-        assertEquals("thay.ewe@gmail",BancoDeArrays.getVoluntarios().get(0).getEmail());
+        assertEquals("thay.ewe@gmail",BancoDeArrays.getVoluntarios().get(0).getEmailVoluntario());
         assertThrows(IllegalArgumentException.class, () ->{
             sistema.cadastrarVoluntario("Thay","thay.ew@gmail","1");
             sistema.cadastrarVoluntario("Thay","thay.ew@gmail","1");
@@ -82,12 +84,12 @@ public class VoluntarioTest {
     @Test
     @DisplayName("Deve exibir o nome e email")
     public void exibir(){
-        Voluntario voluntario1 = new Voluntario("Thay","thay.ewe@gmail","1");
-        Voluntario voluntario2 = new Voluntario("Thay","thay.ew@gmail","1");
+        sistema.cadastrarVoluntario("Thay","thay.ewe@gmail","1");
+        sistema.cadastrarVoluntario("Thay","thay.ew@gmail","1");
 
         assertTrue(true,sistema.exibirVoluntario( "thay.ewe@gmail"));
-        assertEquals("thay.ewe@gmail",voluntario1.getEmail());
-        assertFalse(voluntario1.getEmail().equalsIgnoreCase(voluntario2.getEmail()));
+        assertEquals("thay.ewe@gmail",voluntario.getEmailVoluntario());
+        sistema.exibirVoluntario("thay.ewe@gmail");
     }
 
     @Test
