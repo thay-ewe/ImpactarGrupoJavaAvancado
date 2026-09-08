@@ -1,7 +1,5 @@
 package ImpactarPK;
 
-import java.util.ArrayList;
-
 public class InscricaoVoluntario {
     private String emailVoluntario;
     private int idAcao;
@@ -10,7 +8,6 @@ public class InscricaoVoluntario {
         this.emailVoluntario = emailVoluntario;
         this.idAcao = idAcao;
     }
-
     public int getIdAcao() {
         return idAcao;
     }

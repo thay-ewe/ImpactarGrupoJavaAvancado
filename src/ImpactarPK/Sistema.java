@@ -77,7 +77,7 @@ public class Sistema implements VoluntarioInterface {
     public double pontuacaoPlantio(String email, int id, int mudas) {
         double pontuacao = 5;
         double bonus = 2;
-        double produto = mudas *= bonus;
+        double produto = mudas * bonus;
         double total = produto + pontuacao;
 
         for (Voluntario voluntario1 : BancoDeArrays.voluntarios) {
@@ -125,7 +125,7 @@ public class Sistema implements VoluntarioInterface {
 
     public double pontuacaoMutirao(String email, int id, double duracaoHora) {
         double pontuacao = 4;
-        double total = duracaoHora *= pontuacao;
+        double total = duracaoHora * pontuacao;
 
         for (Voluntario voluntario1 : BancoDeArrays.voluntarios) {
             if (email.equalsIgnoreCase(voluntario1.getEmailVoluntario()) && id == 3) {

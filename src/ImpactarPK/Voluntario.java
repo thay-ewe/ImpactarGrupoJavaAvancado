@@ -1,5 +1,4 @@
 package ImpactarPK;
-import java.util.Comparator;
 
 public class Voluntario {
     private String nome;
